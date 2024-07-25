@@ -1,0 +1,12 @@
+name: TwitterAppSyncBackend
+schema: schema.api.graphql
+authenticationType: AMAZON_COGNITO_USER_POOLS
+userpoolconfig:
+  userPoolId:
+    Ref: CognitoUserPool
+  awsRegion: eu-west-1
+  defaultAction: ALLOW
+  appIdClientRegex: ".*"
+  userpoolconfig:
+    userPoolId:
+      Ref: CognitoUserPool
