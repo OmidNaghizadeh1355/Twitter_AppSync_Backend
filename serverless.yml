@@ -1,3 +1,5 @@
+org: omidnaghizadeh
+app: twitter-appsync-backend
 service: twitter-appsync-backend
 frameworkVersion: "3"
 
@@ -11,8 +13,7 @@ package:
 
 custom:
   appSync:
-    - ${file {serverless.appsync-api.yml}}
-
+    - ${file(serverless.appsync-api.yml)}
 
 provider:
   name: aws
@@ -40,8 +41,6 @@ resources:
           Name: name
           Required: false
           Mutable: true
-CognitoUserPoolId:
-  Type: AWS::Cognito::UserPool::Id
-  Properties:
-    Value:
-      Ref: CognitoUserPool
+ Outputs:
+    CognitoUserPoolId:
+      Value: !Ref CognitoUserPool
